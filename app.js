@@ -3,7 +3,7 @@ var table2 = document.getElementById('table2');
 var table3 = document.getElementById('table3');
 const sub = document.querySelector('#submit');
 
-sub.addEventListener('click', (e) => {
+sub.addEventListener('click', async (e) => {
     e.preventDefault();
     var price = document.getElementById('price');
     var dish = document.getElementById('dish');
@@ -14,34 +14,36 @@ sub.addEventListener('click', (e) => {
         'table': table.value
     }
     //post on crud
-    axios.post("https://crudcrud.com/api/bc2f306d98ce470f843cfe67bba644d6/restroBill", obj)
-        .then(res => {
-            displayOnScreen(res.data);
-        })
-        .catch(err => {
-            console.log(err)
-        })
-
+    try {
+        const res = await axios.post("https://crudcrud.com/api/960c2ab7b6354e12976e48f97b28e237/restroBill", obj)
+        displayOnScreen(res.data);
+    }
+    catch (err) {
+        console.log(err);
+    }
 })
 //on load functionality
-window.addEventListener('DOMContentLoaded', () => {
-    axios.get("https://crudcrud.com/api/bc2f306d98ce470f843cfe67bba644d6/restroBill").then((response) => {
-        for (var i = 0; i < response.data.length; i++) {
+window.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const response = await axios.get("https://crudcrud.com/api/960c2ab7b6354e12976e48f97b28e237/restroBill");
+        for (let i = 0; i < response.data.length; i++) {
             displayOnScreen(response.data[i]);
-
         }
-    }).catch(err => { console.log(err) })
+    }
+    catch (err) {
+        console.log(err)
+    }
 })
 
 function displayOnScreen(res) {
-    //create the textElement
+    //create the li-textElement
     var li = document.createElement('li');
     li.setAttribute('class', 'list-group-item');
-    li.textContent = `${res.price}---${res.table}---${res.dish}`;
+    li.textContent = `${res.price}/-  ${res.table}  ${res.dish}`;
     //create delete button
     var del = document.createElement('button');
-    del.setAttribute('class', 'btn btn-danger mt-2 float-right');
-    del.innerText = 'Delete';
+    del.setAttribute('class', 'delete');
+    del.innerText = 'X';
     //append button in li
     li.appendChild(del);
     if (res.table == 'Table 1') {
@@ -65,6 +67,6 @@ function displayOnScreen(res) {
         else {
             table3.removeChild(li);
         }
-        axios.delete(`https://crudcrud.com/api/bc2f306d98ce470f843cfe67bba644d6/restroBill/${res._id}`);
+        axios.delete(`https://crudcrud.com/api/960c2ab7b6354e12976e48f97b28e237/restroBill/${res._id}`);
     })
 }

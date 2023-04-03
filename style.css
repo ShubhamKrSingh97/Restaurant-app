@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateY(-200px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.heading {
+    background-color: rgba(173, 216, 230, 0.147);
+    border: 1px solid rgba(79, 137, 199, 0.19);
+    box-shadow: 0 5px 20px rgba(0, 157, 255, 0.495);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
+    letter-spacing: 3px;
+    text-shadow: 0 8px 5px rgba(0, 157, 255, 0.5);
+    height: 10vh;
+    text-align: center;
+    font-size: 100%;
+    padding-top: 10px;
+    animation: slideInLeft 1s ease-in 1 forwards;
+}
+
+.card {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    padding: 15px 0;
+    height: 20vh;
+    width: 40vh;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.19);
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(255, 255, 255, 0.40);
+}
+
+body {
+    /* background: linear-gradient(135deg,black,grey); */
+    background-color: black;
+    height: 100vh;
+
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.inputs {
+    color: white;
+    background-color: black;
+    border: 1px solid rgb(0, 157, 255);
+    border-radius: 3px;
+    padding: 0 5px;
+}
+
+#submit {
+    width: 100px;
+    cursor: pointer;
+    margin: 15px 0;
+    border-radius: 4px;
+    background-color: transparent;
+    border: 3px solid rgb(0, 157, 255);
+    box-shadow: 0px 5px 5px rgba(0, 157, 255, 0.4);
+    padding: 3px 5px;
+    color: rgb(0, 157, 255);
+    transition: all 0.3s ease;
+}
+
+#submit:hover {
+    transform: translateY(-5px);
+    background-color: rgb(0, 157, 255);
+    color: white;
+}
+
+.display {
+    display: flex;
+    justify-content: space-around;
+}
+
+.delete {
+    margin-left: 8px;
+    font-weight: bold;
+    background-color: transparent;
+    padding: 0 3px;
+    border-radius: 2px;
+    border: 2px solid red;
+    color: red;
+    box-shadow: 0px 0px 5px red;
+}
+
+.delete:hover {
+    cursor: pointer;
+    background-color: red;
+    color: black;
+}
