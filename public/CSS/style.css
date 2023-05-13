@@ -110,3 +110,27 @@ body {
     background-color: red;
     color: black;
 }
+.price{
+    position:relative ;
+    margin-bottom: 15px;
+}
+.allPrices{
+    padding: 10px;
+    display:none;
+     border-radius: 3px;
+    position: absolute;
+    left: 70px;
+    background-color: black;
+    border: 1px solid rgb(0, 157, 255);
+    width: 10vw;
+    height: 15vh;
+    box-shadow: 0px 0px 30px rgb(0, 157, 255);
+  
+}
+.price:hover .allPrices{
+    cursor: pointer;
+    display: block;
+}
+#reveal{
+    text-decoration: underline;
+}
